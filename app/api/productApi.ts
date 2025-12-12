@@ -1,5 +1,6 @@
-import { axiosInstance } from "#imports";
+import type {Product} from '~/types'
+import {request} from './request'
 
 export const productApi = {
-    getProductList: () => axiosInstance.get('/Investor')
+  getProductList: () => request.get<Product[]>('/Investor'),
 }
