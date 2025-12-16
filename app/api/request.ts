@@ -9,4 +9,5 @@ const request = {
   patch: <T>(url: string, body: {}) => client.patch<T>(url, body).then(responseBody),
   delete: <T>(url: string) => client.delete<T>(url).then(responseBody),
 }
+
 export {request}

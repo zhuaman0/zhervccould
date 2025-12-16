@@ -11,7 +11,9 @@ class AuthServiceClass {
     return token ? `Bearer ${token}` : undefined
   }
 
-  setToken() {}
+  setToken() {
+    
+  }
 
   // auth({usename, password}) {
   // api.login({usename, password}).then(res => {
