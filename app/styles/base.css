@@ -1,36 +1,37 @@
 .container {
-    @apply mx-auto px-4
+  @apply mx-auto px-4;
 }
 
 .v-breadcrumbs {
-    padding: 0px 0px !important;
+  padding: 0px 0px !important;
 }
 
 .v-text-field .v-input__details {
-	display: none !important;
+  display: none !important;
 }
 
 .v-input__details {
-	display: none !important;
+  display: none !important;
 }
 
 .v-field__outline {
-	outline: none !important;
+  outline: none !important;
 }
 
-.v-field.v-field--focused .v-field__outline, .v-input.v-input--error .v-field__outline {
-	opacity: 1 !important;
-	border: 1px solid #228B6B  !important;
-	outline: none !important;
+.v-field.v-field--focused .v-field__outline,
+.v-input.v-input--error .v-field__outline {
+  opacity: 1 !important;
+  border: 1px solid #228b6b !important;
+  outline: none !important;
 }
 .v-btn--variant-elevated {
-	box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 .v-checkbox .v-selection-control {
-	min-height: none !important;
+  min-height: none !important;
 }
 
 .v-selection-control--density-default {
-	all: unset !important;
- }
+  all: unset !important;
+}

@@ -9,28 +9,25 @@
 
   <UiModal :open="openTest" @onClose="closeModalTest"> test modal </UiModal> -->
   <div class="px-16 py-4">
-      <BreadCrumbs class="" :item="['Главная', 'Найти стартап']"/>
-      <h1 class="text-black font-bold text-[30px] mt-4">Стартапы</h1>
-      <p class="text-gray-400 mt-4">Всего 3245 стартапов</p>
+    <BreadCrumbs class="" :item="['Главная', 'Найти стартап']" />
+    <h1 class="text-black font-bold text-[30px] mt-4">Стартапы</h1>
+    <p class="text-gray-400 mt-4">Всего 3245 стартапов</p>
   </div>
   <div class="grid grid-cols-4 gap-4 pt-7 mb-10 px-16">
-    <div>
-      First
-    </div>
+    <div>First</div>
     <div class="grid-cols-3">
-      <UiUIStartup/>
+      <UiUIStartup />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import {api} from '#imports'
-import { BreadCrumbs } from '~/components/ui'
+import {BreadCrumbs} from '~/components/ui'
 import {UiModal, ModalDefault, useModalControl} from '~/components/ui'
-import type BreadCrumbsVue from '~/components/ui/UiCrumbs/BreadCrumbs.vue'
-import { pathService } from '~/services/path'
+import type BreadCrumbsVue from '~/components/ui/Crumbs/BreadCrumbs.vue'
+import {pathService} from '~/services/path'
 import {type Product} from '~/types'
-import type UIStartupVue from '~/components/ui/UiStartup/UIStartup.vue'
 
 const products = ref<Product[]>([])
 const {open, openModal, closeModal} = useModalControl()
@@ -58,5 +55,4 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

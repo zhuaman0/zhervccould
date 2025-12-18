@@ -1,16 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true },
+  devtools: {enabled: true},
   modules: ['@nuxtjs/tailwindcss', 'vuetify-nuxt-module'],
-  css: [
-    './app/styles/main.css'
-  ],
-  components: [
-    { path: '~/components', pathPrefix: true }
-  ],
+  css: ['./app/styles/main.css'],
+  components: [{path: '~/components', pathPrefix: true}],
   ssr: false,
   imports: {
-    dirs: ['components', 'plugins', 'stores', 'stores/*/*', 'api']
-  }
+    dirs: ['components', 'plugins', 'stores', 'stores/*/*', 'api'],
+  },
 })

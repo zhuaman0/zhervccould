@@ -1,8 +1,8 @@
 export const pathService = {
-    state: {},
+  state: {},
 
-    get() {
-        const route = useRoute()
-        return route.fullPath
-    }
+  get() {
+    const route = useRoute()
+    return route.fullPath
+  },
 }
