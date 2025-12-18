@@ -9,7 +9,7 @@
         class="bg-white max-w-[400px] min-w-[400px] flex items-center justify-center flex-col py-8 py-8"
         @click.stop
       >
-        <slot> </slot>
+        <slot></slot>
       </div>
     </div>
   </Teleport>

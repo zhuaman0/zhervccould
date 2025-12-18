@@ -5,7 +5,9 @@ export const LocalStorage = {
     return localStorage.getItem(key)
   },
 
-  set() {},
+  set(value: string) {
+    return localStorage.setItem('token', value)
+  },
 
   parse() {},
 }
