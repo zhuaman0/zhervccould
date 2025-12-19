@@ -9,9 +9,7 @@
     </div>
     <div class="center-nav">
       <ul class="flex items-center gap-6">
-        <NuxtLink to="/startup/startups-list" class="nav-link"
-          ><li>Стартапы</li></NuxtLink
-        >
+        <NuxtLink to="/startups" class="nav-link"><li>Стартапы</li></NuxtLink>
         <NuxtLink to="/investor/investors-list" class="nav-link"
           ><li>Инвесторы</li></NuxtLink
         >

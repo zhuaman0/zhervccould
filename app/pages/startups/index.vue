@@ -9,7 +9,13 @@
 
   <UiModal :open="openTest" @onClose="closeModalTest"> test modal </UiModal> -->
   <div class="px-16 py-4">
-    <BreadCrumbs class="" :item="['Главная', 'Найти стартап']" />
+    <BreadCrumbs
+      class=""
+      :links="[
+        {title: 'Главная', path: '/'},
+        {title: 'Найти стартап', path: '/startups'},
+      ]"
+    />
     <h1 class="text-black font-bold text-[30px] mt-4">Стартапы</h1>
     <p class="text-gray-400 mt-4">Всего 3245 стартапов</p>
   </div>

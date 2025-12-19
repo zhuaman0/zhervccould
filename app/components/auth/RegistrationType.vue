@@ -10,7 +10,7 @@
         <div class="border-[2px] border-[#36CE9F] w-[220px] h-[50px]">
           <button
             class="text-[#36CE9F] font-[600] p-2 w-full h-full"
-            @click="typeOfRegistration(card.title)"
+            @click="typeOfRegistration(card.id)"
           >
             Зарегистрироваться
           </button>
@@ -21,23 +21,19 @@
 </template>
 
 <script setup lang="ts">
+import type {USER_ROLES} from '~/types'
 import {BreadCrumbs} from '../ui'
 import type BreadCrumbsVue from '../ui/Crumbs/BreadCrumbs.vue'
 
 const route = useRoute()
 const router = useRouter()
-const cards = [
-  {
-    title: 'Стартап',
-    desc: 'Необходимо выполнить все требования для регистрации стартапа',
-    img: '@/assets/icons/investor.svg',
+
+defineProps({
+  cards: {
+    type: Array<{id: USER_ROLES; title: string; desc: string; img: string}>,
+    regired: true,
   },
-  {
-    title: 'Инвестор',
-    desc: 'Бизнес-ангел может вернуть до 50% вложений в определенные стартап',
-    img: './app/assets/icons/startup.svg',
-  },
-]
+})
 
 const emit = defineEmits(['type'])
 

@@ -1,11 +1,10 @@
 import {request} from './request'
-import type {User, UserLogin} from '~/types/auth'
+import type {User, UserLogin, UserLoginResponse} from '~/types/auth'
 
 export const authApi = {
-  setRegisterUser: (value: User) => {
-    request.post('/Users/register', value)
+  register: (value: User) => {
+    return request.post('/Users/register', value)
   },
-  setLoginUser: (value: UserLogin) => {
-    request.post('/Users/login', value)
-  },
+  login: (value: UserLogin) => request.post<UserLoginResponse>('/Users/login', value),
+  getMe: () => '',
 }

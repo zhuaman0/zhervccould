@@ -1,13 +1,15 @@
 <template>
   <div class="">
-    <v-breadcrumbs :items="item"></v-breadcrumbs>
+    <nuxt-link v-for="(link, index) in links" :key="index" :to="link.path">
+      {{ link.title }}
+    </nuxt-link>
   </div>
 </template>
 
 <script setup lang="ts">
 const props = defineProps({
-  item: {
-    type: Array as PropType<string[]>,
+  links: {
+    type: Array<{path: string; title: string}>,
     required: true,
   },
 })

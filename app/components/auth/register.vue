@@ -1,7 +1,9 @@
 <template>
   <div class="flex w-full justify-center">
     <div class="w-full">
-      <h1 class="font-bold tx text-center">Регистрация {{ type.toLocaleLowerCase() }}</h1>
+      <h1 class="font-bold tx text-center">
+        Регистрация {{ registerType?.toLocaleLowerCase() }}
+      </h1>
       <form
         @submit.prevent="handleRegister"
         class="bg-white max-w-[500px] min-w-[500px] mt-[20px] p-8"
@@ -34,7 +36,15 @@
 
 <script setup lang="ts">
 import {api} from '#imports'
-import {type User} from '~/types'
+import {USER_ROLES, type User} from '~/types'
+
+const props = defineProps({
+  registerType: {
+    type: String,
+    required: true,
+  },
+})
+
 const fullName = ref('')
 const email = ref('')
 const phoneNumber = ref('')
@@ -53,12 +63,6 @@ const handleRegister = async () => {
     console.log(err)
   }
 }
-const props = defineProps({
-  type: {
-    type: String,
-    required: true,
-  },
-})
 </script>
 
 <style scoped>
