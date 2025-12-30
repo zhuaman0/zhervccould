@@ -1,8 +1,9 @@
 import {LocalStorage} from './storage'
 import {api} from '@/api'
+import {type User} from '~/types'
 
 class AuthServiceClass {
-  _user = null
+  private _user: User | null = null
 
   parseToken() {}
 
@@ -37,12 +38,6 @@ class AuthServiceClass {
       return this.getMe()
     })
   }
-
-  // auth({usename, password}) {
-  // api.login({usename, password}).then(res => {
-  //   this.setToken(res.token)
-  // })
-  // }
 }
 
 const AuthService = new AuthServiceClass()

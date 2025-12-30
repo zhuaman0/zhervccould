@@ -6,62 +6,63 @@
         @submit.prevent="handleRegister"
         class="bg-white max-w-[500px] min-w-[500px] mt-[20px] p-8"
       >
-        <pre>{{ email }}</pre>
-        <pre>{{ password }}</pre>
         <div class="w-full mt-4">
-          <UiInput
-            v-model="email"
-            :id="'email'"
-            :label="'Электронная почта'"
-            :placeholder="'name@example.com'"
+            <UiInput
+              v-model="email"
+              :id="'email'"
+              :label="'Электронная почта'"
+              :placeholder="'name@example.com'"
           />
         </div>
         <div class="w-full mt-4">
-          <input v-model="email" />
-          <UiInput
-            :model-value="password"
-            :id="'password'"
-            :label="'Пароль'"
-            :placeholder="'Введите пароль'"
-            type="password"
-            @update:model-value="v => (password = v)"
-          />
-          <!-- ErrorMessage -->
+            <UiInput
+              :model-value="password"
+              :id="'password'"
+              :label="'Пароль'"
+              :placeholder="'Введите пароль'"
+              type="password"
+              @update:model-value="v => (password = v)"
+            />
+          <ErrorMessage name="password" class="text-red-500 text-sm" />
           <!-- type="password" -->
         </div>
         <div class="mt-4 text-white">
           <button type="submit" class="bg-[#36CE9F] text-white font-bold w-full py-4">
-            Зарегистрироваться
+            Войти
           </button>
         </div>
         <div class="my-[10px] flex justify-center">
           <p>Уже зарегистрированы?</p>
           <a class="text-[#36CE9F]" href="/auth/login">Войти</a>
         </div>
-      </form>
+      </Form>
     </div>
-    <!-- TODO: validation of form, can be made with libraries -->
   </div>
 </template>
 
 <script setup lang="ts">
 import {api} from '#imports'
 import {type User, type UserLoginResponse} from '~/types'
-import {InputDefault, useInputControl} from '~/components/ui'
 import {AuthService} from '~/services'
+import {ErrorMessage, Field, Form, useForm} from 'vee-validate'
+import {toTypedSchema} from '@vee-validate/zod'
+import * as zod from 'zod'
 const router = useRouter()
-const email = ref('test@gmai..com')
+const email = ref('')
 const password = ref('')
-// const {
-//   value: emailControl,
-//   error: emailError,
-//   validate: validateEmail,
-// } = useInputControl()
-// const {
-//   value: passwordControl,
-//   error: passwordError,
-//   validate: validatePassword,
-// } = useInputControl()
+
+// const schema = toTypedSchema(
+//   zod.object({
+//     email: zod
+//       .string()
+//       .min(1, {message: 'This is required'})
+//       .email({message: 'Must be a valid email'}),
+//     password: zod
+//       .string()
+//       .min(1, {message: 'This is required'})
+//       .min(8, {message: 'Too short'}),
+//   })
+// )
 const handleRegister = async () => {
   const payload = {
     email: email.value,
@@ -72,7 +73,7 @@ const handleRegister = async () => {
       router.push('/')
     })
     .catch(() => {
-      alert('NOt loged in')
+      alert('Not loged in')
     })
 }
 </script>

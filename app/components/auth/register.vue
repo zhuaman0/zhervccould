@@ -1,13 +1,10 @@
 <template>
-  <div class="flex w-full justify-center">
+  <div class="">
     <div class="w-full">
       <h1 class="font-bold tx text-center">
-        Регистрация {{ registerType?.toLocaleLowerCase() }}
+        Регистрация {{ typeInRussian().toLocaleLowerCase() }}
       </h1>
-      <form
-        @submit.prevent="handleRegister"
-        class="bg-white max-w-[500px] min-w-[500px] mt-[20px] p-8"
-      >
+      <form @submit.prevent="" class="bg-white max-w-[500px] min-w-[500px] mt-[20px] p-8">
         <div class="w-full">
           <label for="name">Имя и фамилия</label>
         </div>
@@ -49,18 +46,26 @@ const fullName = ref('')
 const email = ref('')
 const phoneNumber = ref('')
 const password = ref('')
-const handleRegister = async () => {
-  try {
-    const response = await api.authApi.setRegisterUser({
-      fullName: fullName.value,
-      email: email.value,
-      phoneNumber: phoneNumber.value,
-      password: password.value,
-      role: 'Investor',
-    })
-    console.log(response)
-  } catch (err) {
-    console.log(err)
+// const handleRegister = async () => {
+//   try {
+//     const response = await api.authApi.setRegisterUser({
+//       fullName: fullName.value,
+//       email: email.value,
+//       phoneNumber: phoneNumber.value,
+//       password: password.value,
+//       role: 'Investor',
+//     })
+//     console.log(response)
+//   } catch (err) {
+//     console.log(err)
+//   }
+// }
+
+function typeInRussian() {
+  if (props.registerType === 'Investor') {
+    return 'Инвестор'
+  } else {
+    return 'Стартап'
   }
 }
 </script>

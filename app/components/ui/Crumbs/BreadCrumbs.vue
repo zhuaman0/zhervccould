@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <nuxt-link v-for="(link, index) in links" :key="index" :to="link.path">
+    <nuxt-link class="mr-2" v-for="(link, index) in links" :key="index" :to="link.path">
       {{ link.title }}
     </nuxt-link>
   </div>

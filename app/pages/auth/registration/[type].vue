@@ -1,10 +1,13 @@
 <template>
-  <div class="container flex w-full justify-center mt-[15px]">
+  <div class="container mx-auto flex w-full justify-center mt-[15px]">
     <AuthRegister :registerType="type" />
   </div>
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  name: 'registerType',
+})
 const router = useRouter()
 const route = useRoute()
 
