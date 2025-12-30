@@ -1,5 +1,5 @@
 <template>
   <div>
-    <h1>Investor detail pages</h1>
+    <h1>Language</h1>
   </div>
 </template>

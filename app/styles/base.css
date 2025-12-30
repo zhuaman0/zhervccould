@@ -3,40 +3,28 @@
 }
 
 * {
-  font-family: Atyp;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Atyp-Bold", sans-serif;
 }
-
-/* // remove it */
-.v-breadcrumbs {
-  padding: 0px 0px !important;
+/* @font-face {
+  font-family: "Atyp-Regular";
+  src: url('/app/assets/font/AtypDisplayTRIAL-Regular-BF65727125d566e.otf');
 }
-
-.v-text-field .v-input__details {
-  display: none !important;
+@font-face {
+  font-family: "Atyp-Bold";
+  src: url('/app/assets/font/AtypDisplayTRIAL-Bold-BF65727125c8d1d.otf');
 }
-
-.v-input__details {
-  display: none !important;
+@font-face {
+  font-family: "Atyp-Light";
+  src: url('/app/assets/font/AtypDisplayTRIAL-Light-BF65727125c722b.otf');
 }
-
-.v-field__outline {
-  outline: none !important;
+@font-face {
+  font-family: "Atyp-Medium";
+  src: url('/app/assets/font/AtypDisplayTRIAL-Medium-BF65727125b8683.otf');
 }
-
-.v-field.v-field--focused .v-field__outline,
-.v-input.v-input--error .v-field__outline {
-  opacity: 1 !important;
-  border: 1px solid #228b6b !important;
-  outline: none !important;
-}
-.v-btn--variant-elevated {
-  box-shadow: none !important;
-}
-
-.v-checkbox .v-selection-control {
-  min-height: none !important;
-}
-
-.v-selection-control--density-default {
-  all: unset !important;
-}
+@font-face {
+  font-family: "Atyp-Semibold";
+  src: url('/app/assets/font/AtypDisplayTRIAL-Semibold-BF65727125c6fc9.otf');
+} */

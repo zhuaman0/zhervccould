@@ -6,5 +6,5 @@ export const authApi = {
     return request.post('/Users/register', value)
   },
   login: (value: UserLogin) => request.post<UserLoginResponse>('/Users/login', value),
-  getMe: () => '',
+  getMe: () => request.get<User>('/Users/me'),
 }

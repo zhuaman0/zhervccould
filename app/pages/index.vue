@@ -1,5 +1,9 @@
 <template>
-  <div class="container">
-    <h1>Index</h1>
+  <div class="">
+    <MainSectionHeader />
+    <MainCategoriesSection />
+    <MainStartupOpportunities />
+    <!-- <MainStartupCriteria />
+    <MainFaqSection /> -->
   </div>
 </template>

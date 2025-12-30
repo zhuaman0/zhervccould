@@ -5,13 +5,14 @@ export const USER_ROLES = {
   startup: 'Startup',
 } as const
 
+
 // export type USER_ROLES = (typeof USER_ROLES)[keyof typeof USER_ROLES]
 export type USER_ROLES = ValueOf<typeof USER_ROLES>
 
 export type User = {
-  fullName: string
+  fullname: string
   email: string
-  phoneNumber: string
+  phonenumber: string
   password: string
   role: string
 }

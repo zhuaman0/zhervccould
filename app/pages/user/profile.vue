@@ -1,6 +1,5 @@
 <template>
   <div class="container px-16 mt-[15px]">
-    <BreadCrumbs class="" :item="['Главная', 'Профиль']" />
     <h1 class="font-bold text-[28px] sm:text-[32px] my-5">Профиль</h1>
     <ProfileForm />
     <button
@@ -12,5 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import {BreadCrumbs} from '~/components/ui'
+definePageMeta({
+  name: 'profile',
+})
 </script>

@@ -1,22 +1,23 @@
 <template>
-  <div class="px-16">
-    <BreadCrumbs :item="['Главная', 'Выбор роли']" />
-    <h1 class="tx mt-[15px]">Выберите роль для регистрации</h1>
-    <ul class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-[15px] max-w-[900px]">
-      <li v-for="(card, index) in cards" :key="index" class="bg-white p-7">
-        <img src="@/assets/icons/startup.svg" :alt="card.title" class="mb-[10px]" />
-        <h1 class="text-[24px] font-[600] mb-[10px]">{{ card.title }}</h1>
-        <p class="text-[16px] leading-[20px] mb-[10px]">{{ card.desc }}</p>
-        <div class="border-[2px] border-[#36CE9F] w-[220px] h-[50px]">
-          <button
-            class="text-[#36CE9F] font-[600] p-2 w-full h-full"
-            @click="typeOfRegistration(card.id)"
-          >
-            Зарегистрироваться
-          </button>
-        </div>
-      </li>
-    </ul>
+  <div class="flex justify-start w-full">
+    <div class="px-16">
+      <h1 class="tx mt-[15px]">Выберите роль для регистрации</h1>
+      <ul class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-[15px] max-w-[900px]">
+        <li v-for="(card, index) in cards" :key="index" class="bg-white p-7">
+          <img src="@/assets/icons/startup.svg" :alt="card.title" class="mb-[10px]" />
+          <h1 class="text-[24px] font-[500] mb-[10px]">{{ card.title }}</h1>
+          <p class="text-[16px] leading-[20px] mb-[10px]">{{ card.desc }}</p>
+          <div class="border-[2px] border-[#36CE9F] w-[220px] h-[50px]">
+            <button
+              class="text-[#36CE9F] font-[600] p-2 w-full h-full"
+              @click="typeOfRegistration(card.id)"
+            >
+              Зарегистрироваться
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -45,6 +46,6 @@ function typeOfRegistration(type: string) {
 <style scoped>
 .tx {
   font-size: 30px;
-  font-weight: 600;
+  font-weight: 500;
 }
 </style>

@@ -13,6 +13,7 @@
       <ProfileEditForm />
       <div class="max-w-2xl grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
         <button
+          @click="$router.push('/user/profile')"
           class="w-full text-center py-3 bg-gray-100 hover:bg-gray-200 text-[#181236] font-[400]"
         >
           Отменить
@@ -31,5 +32,8 @@
 <style scoped></style>
 
 <script setup lang="ts">
+definePageMeta({
+  name: 'edit',
+})
 import {BreadCrumbs} from '~/components/ui'
 </script>
