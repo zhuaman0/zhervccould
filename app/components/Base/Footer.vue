@@ -32,13 +32,16 @@
                 </div>
             </div>
             <div class="w-full bg-white h-[0.5px] my-8"></div>
-            <div class="w-full flex justify-center text-white font-light">
-                <ul class="flex items-center gap-4">
-                    <li>2025 ZherVC. Все права защищены.</li>
-                    <li>Политика конфиденциальности</li>
-                    <li>Связаться с поддержкой</li>
-                </ul>
-            </div>
+        <div class="w-full flex justify-center text-white font-light">
+            <ul class="flex items-center gap-4">
+                <li>2025 ZherVC. Все права защищены.</li>
+                <li>Политика конфиденциальности</li>
+                <li>Связаться с поддержкой</li>
+            </ul>
+        </div>
         </div>
     </footer>
 </template>
+
+
+<script lang="ts"></script>

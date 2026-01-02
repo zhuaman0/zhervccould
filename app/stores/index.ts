@@ -3,9 +3,9 @@ import {type ServiceStore} from './types'
 
 export const useServiceStore = defineStore('service', {
   state: (): ServiceStore => ({
-    pageLoading: false,
-    userNotFound: false,
-    productNotFount: false,
+    pageLoading: false, // not needed
+    userNotFound: false, // not needed
+    productNotFount: false, // not needed
     language: 'kz',
   }),
 })

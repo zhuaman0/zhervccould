@@ -1,3 +1,3 @@
-export * from './product'
+export * from './investor'
 export * from './auth'
 export * from './common'

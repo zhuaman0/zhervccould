@@ -1,6 +1,6 @@
-import {productApi} from '#imports'
-import {authApi} from '#imports'
+import {startupApi} from './startupApi'
+import {authApi} from './authApi'
 export const api = {
-  productApi,
+  startupApi,
   authApi,
 }

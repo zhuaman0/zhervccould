@@ -9,8 +9,10 @@
         :key="index"
         class="flex items-center gap-3 mt-2 text-[14px] text-[#181236] cursor-pointer transition hover:bg-gray-50"
       >
-        <img src="@/assets/icons/document.svg" alt="" class="w-4 h-4" />
-        <span>{{ option.title }}</span>
+        <NuxtLink class="flex items-center gap-3" :to="option.link">
+          <img src="@/assets/icons/document.svg" alt="" class="w-4 h-4" />
+          <span>{{ option.title }}</span></NuxtLink
+        >
       </li>
     </ul>
   </div>
@@ -21,14 +23,17 @@ const optionsDrop = [
   {
     title: 'Моя анкета',
     img: '@/assets/icons/document.svg',
+    link: '/',
   },
   {
     title: 'Профиль',
     img: '@/assets/icons/user.svg',
+    link: '/user/profile',
   },
   {
     title: 'Выйти',
     img: '@/assets/icons/logout.svg',
+    link: '',
   },
 ]
 </script>
