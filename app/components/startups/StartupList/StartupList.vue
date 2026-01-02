@@ -1,34 +1,41 @@
 <template>
   <div class="mt-4 space-y-6">
     <div
+      @click="toDetailPage(startup.organizationName)"
       class="py-4 px-4 bg-white flex items-start"
-      v-for="starup in startups"
-      :key="starup.id"
+      v-for="startup in startups"
+      :key="startup.id"
     >
-      <img :src="starup.logo" alt="" />
+      <img src="@/assets/icons/ubex.png" alt="" />
       <div class="">
-        <h1 class="text-[20px]">{{ starup.name }}</h1>
+        <h1 class="text-[20px]">{{ startup.fullName }}</h1>
         <p class="mt-2">
-          {{ starup.description }}
+          {{ startup.organizationName }}
         </p>
         <ul class="flex gap-5 mt-2">
-          <li
-            class="border-[#B9B1FC] border-[1px] px-2 py-1"
-            v-for="item in starup.industry"
-            :key="item"
-          >
-            {{ item }}
+          <li class="border-[#B9B1FC] border-[1px] px-2 py-1">
+            {{ startup.investorType }}
+          </li>
+          <li class="border-[#B9B1FC] border-[1px] px-2 py-1">
+            {{ startup.organizationName }}
           </li>
         </ul>
-        <NuxtLink class="flex gap-2 mt-2 text-[#228B6B]" :to="`/startups/${starup.id}`">
-          Подробнее >
-        </NuxtLink>
+        <div class="flex items-center mt-2">
+          <span class="text-[#36CE9F] font-[400] lg:text-[16px] text-[12px]"
+            >Подробнее</span
+          >
+          <Icon
+            class="text-[#36CE9F] text-[26px]"
+            name="material-symbols-light:chevron-right"
+          />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import type {InvestorCreateRequest, SelectOption, InvestorResponse} from '~/types'
 const mockStartups = [
   {
     id: 1,
@@ -53,6 +60,13 @@ const mockStartups = [
     logo: '@/assets/icons/greenwave.png',
   },
 ]
+const router = useRouter()
+const props = defineProps<{
+  startupList: InvestorResponse[]
+}>()
+const startups = computed(() => props.startupList)
 
-const startups = ref(mockStartups)
+function toDetailPage(id: string) {
+  router.push(`/startups/${id}`)
+}
 </script>

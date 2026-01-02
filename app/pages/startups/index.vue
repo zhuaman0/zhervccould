@@ -1,4 +1,8 @@
 <template>
   <Startups />
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+definePageMeta({
+  name: 'Startups',
+})
+</script>

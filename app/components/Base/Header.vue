@@ -1,12 +1,14 @@
 <template>
   <header class="toolbar flex justify-between px-[150px] py-4 items-center bg-white">
-    <div class="left-nav flex items-center">
-      <img src="@/assets/icons/logo.svg" alt="" />
-      <h1 class="text-[#36CE9F] uppercase ml-[10px] leading-none">
-        zher <br />
-        venture capital
-      </h1>
-    </div>
+    <NuxtLink to="/">
+      <div class="left-nav flex items-center">
+        <img src="@/assets/icons/logo.svg" alt="" />
+        <h1 class="text-[#36CE9F] uppercase ml-[10px] leading-none">
+          zher <br />
+          venture capital
+        </h1>
+      </div></NuxtLink
+    >
     <div class="center-nav">
       <ul class="flex items-center gap-6">
         <NuxtLink to="/startups" class="nav-link"><li>Стартапы</li></NuxtLink>
@@ -26,7 +28,7 @@
         Войти
       </button> -->
       <div @click="openDropDown" class="relative">
-        <h1>{{ user?.fullname }}</h1>
+        <h1>{{ user?.fullname }} ▾</h1>
         <Transition name="fade">
           <UiDown class="absolute" v-if="dropOpen"> <UiDownDropDefault /> </UiDown
         ></Transition>

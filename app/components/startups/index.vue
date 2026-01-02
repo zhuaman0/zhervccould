@@ -9,17 +9,16 @@
         ]"
       />
       <!-- TODO: <PageHeader title="Стартапы" description="Всего 3245 стартапов" /> -->
-      <h1 class="text-black font-bold text-[30px] mt-4">Стартапы</h1>
-      <p class="text-gray-400 mt-4">Всего 3245 стартапов</p>
+      <PageHeader :title="'Стартапы'" :description="'Всего 3245 стартапов'" />
     </div>
     <div class="grid grid-cols-4 gap-4 pt-7 mb-10 px-16">
       <div class="bg-white py-4 px-4">
-        <Filters v-model="filters" />
+        <Filters />
       </div>
       <div class="col-span-3 w-full">
         <UiSearchInput v-model="searchQuery" />
 
-        <StartupList />
+        <StartupList :startupList="products" />
 
         <Lock />
       </div>
@@ -29,7 +28,7 @@
 
 <script setup lang="ts">
 definePageMeta({
-  name: 'startups',
+  name: 'startup',
 })
 import {api} from '#imports'
 import {BreadCrumbs} from '~/components/ui'
@@ -37,10 +36,10 @@ import StartupList from './StartupList/StartupList.vue'
 import {UiModal, ModalDefault, useModalControl} from '~/components/ui'
 import type BreadCrumbsVue from '~/components/ui/Crumbs/BreadCrumbs.vue'
 import {pathService} from '~/services/path'
-import type {Product, SelectOption} from '~/types'
+import type {InvestorCreateRequest, SelectOption, InvestorResponse} from '~/types'
 import Filters from './components/Filters.vue'
 
-const products = ref<Product[]>([])
+const products = ref<InvestorResponse[]>([])
 const {open, openModal, closeModal} = useModalControl()
 const {
   open: openTest,
@@ -54,7 +53,7 @@ const searchQuery = ref('')
 
 const getProucts = async () => {
   try {
-    const response = await api.productApi.getProductList()
+    const response = await api.startupApi.getStartupList()
     products.value = response
     console.log(response)
   } catch (error) {

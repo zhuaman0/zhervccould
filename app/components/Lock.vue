@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="ml-12">
-        <img class="h-[200px]" src="@/assets/icons/access.svg" alt="" />
+        <img class="w-[200px]" src="@/assets/icons/access.svg" alt="" />
       </div>
     </div>
   </div>

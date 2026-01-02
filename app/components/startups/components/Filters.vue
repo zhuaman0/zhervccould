@@ -9,22 +9,17 @@
             :options="technologyFilters"
             :label="'Технологии'"
           /> -->
-  <div class="text-[20px] font-bold">Фильтр</div>
-
-  <ul class="mt-4">
-    <p class="mt-2">Индустрии</p>
-    <li class="mt-2 ml-4" v-for="item in industryFilters" :key="item.value">
-      <input type="checkbox" />
-      <span class="ml-2">{{ item.label }}</span>
-    </li>
-  </ul>
-  <ul class="mt-4">
-    <p class="mt-2">Технологии</p>
-    <li class="mt-2 ml-4" v-for="item in technologyFilters" :key="item.value">
-      <input type="checkbox" />
-      <span class="ml-2">{{ item.label }}</span>
-    </li>
-  </ul>
+  <div class="text-[20px] font-[500]">Фильтр</div>
+  <UiCheckBoxGroup
+    v-model="selectedFilters.industry"
+    :options="industryFilters"
+    :label="'Индустрии'"
+  />
+  <UiCheckBoxGroup
+    v-model="selectedFilters.technology"
+    :options="technologyFilters"
+    :label="'Технология'"
+  />
 </template>
 
 <script setup lang="ts">
@@ -75,4 +70,11 @@ const technologyFilters: SelectOption[] = [
     label: 'Analytics / Big Data',
   },
 ]
+
+watch(
+  () => selectedFilters.value.industry,
+  newValue => {
+    console.log('Industry values:', newValue)
+  }
+)
 </script>
