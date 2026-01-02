@@ -1,5 +1,5 @@
-import {startupApi} from '#imports'
-import {authApi} from '#imports'
+import {startupApi} from './startupApi'
+import {authApi} from './authApi'
 export const api = {
   startupApi,
   authApi,

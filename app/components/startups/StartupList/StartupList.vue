@@ -1,6 +1,12 @@
 <template>
   <div class="mt-4 space-y-6">
+    <!-- TODO NuxtLink as wrapper and cursor pointer -->
+    <!-- TODO Skeletons  as wrapper and cursor pointer -->
+
+    <Loading v-if="!startups.length" />
+
     <div
+      v-else
       @click="toDetailPage(startup.organizationName)"
       class="py-4 px-4 bg-white flex items-start"
       v-for="startup in startups"
@@ -35,7 +41,8 @@
 </template>
 
 <script lang="ts" setup>
-import type {InvestorCreateRequest, SelectOption, InvestorResponse} from '~/types'
+import type {Investor} from '~/types'
+
 const mockStartups = [
   {
     id: 1,
@@ -62,11 +69,11 @@ const mockStartups = [
 ]
 const router = useRouter()
 const props = defineProps<{
-  startupList: InvestorResponse[]
+  startupList: Investor[]
 }>()
 const startups = computed(() => props.startupList)
 
-function toDetailPage(id: string) {
+function toDetailPage(id: Investor['organizationName']) {
   router.push(`/startups/${id}`)
 }
 </script>

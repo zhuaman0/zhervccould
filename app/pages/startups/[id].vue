@@ -1,18 +1,21 @@
 <template>
   <div class="p-4 container sm:p-6 md:p-8 w-full">
+    <Loading v-if="!startup" />
     <div
+      v-else
       class="ml-2 sm:ml-4 md:ml-6 lg:ml-20 w-full max-w-3xl md:w-2/3 bg-white shadow-lg p-6 sm:p-8"
     >
       <div class="flex items-center h-full">
-        <img
-          v-if="startup?.logoPath"
-          class="mb-4 w-[50px] h-full"
-          :src="getImage(startup.logoPath)"
-          alt="Логотип"
-        />
-        <h1 class="text-2xl sm:text-3xl ml-4 font-bold text-[#181236] mb-6 sm:mb-8">
+        <img v-if="image" class="mb-4 w-[50px] h-full" :src="image" alt="Логотип" />
+        <Skeleton v-else class="mb-4 w-[50px] h-full" />
+
+        <h1
+          v-if="startup"
+          class="text-2xl sm:text-3xl ml-4 font-bold text-[#181236] mb-6 sm:mb-8"
+        >
           {{ startup?.fullName }}
         </h1>
+        <Skeleton v-else class="h-6 w-full" />
       </div>
 
       <div class="mb-6">
@@ -101,7 +104,7 @@
 import type {DetailInvestorResponse} from '~/types'
 import {ref, onMounted} from 'vue'
 import {useRoute} from 'vue-router'
-import {startupApi} from '~/api/startupApi'
+import {api} from '~/api'
 
 const startup = ref<DetailInvestorResponse>()
 const route = useRoute()
@@ -111,7 +114,9 @@ const getDetailItem = async () => {
     console.error('Invalid route param id')
     return
   }
-  startupApi
+  console.log('getDetailItem')
+
+  api.startupApi
     .getDetailList(pathId)
     .then(response => {
       startup.value = response
@@ -123,10 +128,18 @@ const getDetailItem = async () => {
 }
 
 const getImage = (path: any) => {
-  return `https://zhervcapi.azurewebsites.net${path}`
+  return `${import.meta.env.VITE_IMAGE_BASE_URL}${path}`
 }
 
+const image = computed(() => {
+  return (
+    startup.value &&
+    `${import.meta.env.VITE_IMAGE_BASE_URL}${startup.value.profilePhotoPath}`
+  )
+})
 onMounted(() => {
+  console.log('MOunted')
+
   getDetailItem()
   console.log(startup.value?.logoPath)
   console.log('Baby')

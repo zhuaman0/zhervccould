@@ -28,7 +28,7 @@ export type InvestorCreateRequest = {
   developmentStageIds: number[]
 }
 
-export type InvestorResponse = {
+export type Investor = {
   id: number
   fullName: string
   organizationName: string

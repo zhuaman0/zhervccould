@@ -1,21 +1,30 @@
 <template>
-  <div>
-    <ul class="mt-4">
-      <p class="mt-2 text-[16px]">{{ label }}</p>
-      <li class="mt-2" v-for="(item, index) in options" :key="index">
-        <input v-model="model" :value="item" type="checkbox" />
-        <span class="ml-2">{{ item.label }}</span>
-      </li>
-    </ul>
-  </div>
+  <fieldset class="">
+    <legend class="mb-1 font-normal">{{ label }}</legend>
+
+    <label
+      v-for="(item, index) in options"
+      :key="index"
+      class="py-1 block space-x-2 cursor-pointer"
+    >
+      <input
+        v-model="model"
+        type="checkbox"
+        :id="item.value"
+        :value="item"
+        class="mt-1"
+      />
+      <span>{{ item.label }}</span>
+    </label>
+  </fieldset>
 </template>
 
 <script setup lang="ts">
 import type {SelectOption} from '~/types'
 const model = defineModel<SelectOption[]>()
-const query = ref<string>()
+
 defineProps<{
-  options: SelectOption[]
   label: string
+  options: SelectOption[]
 }>()
 </script>
