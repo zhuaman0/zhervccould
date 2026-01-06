@@ -59,3 +59,25 @@ export type DetailInvestorResponse = {
   innovationMethods: string[]
   developmentStages: string[]
 }
+
+export type InvestorResponseQuestionnaire = {
+  id: number
+  fullName: string
+  contactFullName: string
+  publicEmail: string
+  phoneNumber: string
+  countryName: string
+  website: string
+  organizationName: string
+  identificationNumber: string
+  description: string
+  investmentAmount: number
+  hasStartupPilotExperience: boolean
+  investsInStartups: boolean
+  profilePhotoPath: string
+  logoPath: string
+  industries: string[]
+  technologies: string[]
+  innovationMethods: string[]
+  developmentStages: string[]
+}

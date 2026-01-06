@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col sm:flex-row justify-between text-start items-center px-2 lg:px-0 max-w-[1300px] mx-auto"
+    class="flex flex-col sm:flex-row justify-between text-start items-center lg:px-0 container"
   >
     <section class="py-12 px-4 center lg:text-left">
       <h1
@@ -23,7 +23,7 @@
         @click=""
         data-aos="fade-right"
         data-aos-duration="1500"
-        class="mt-6 bg-[#36CE9F] text-white px-6 py-2 rounded hover:bg-green-300 transition"
+        class="mt-6 bg-[#36CE9F] text-white px-6 py-2 rounded hover:bg-[#2B10F9] transition"
       >
         Присоединиться
       </button>

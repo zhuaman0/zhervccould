@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-2xl bg-white p-5 rounded-lg shadow-sm">
+  <div class="max-w-3xl bg-white p-5 rounded-lg shadow-sm">
     <div class="flex justify-between items-center mb-6">
       <h2 class="font-bold text-[18px] sm:text-[20px]">Личные данные</h2>
       <img

@@ -3,7 +3,7 @@
     v-if="serviceStore.pageLoading === false"
     class="w-full flex flex-col items-center mt-8 justify-center text-center"
   >
-    <img class="animate" src="/assets/icons/loading.svg" alt="" />
+    <img class="animate" src="/assets/loading/loading.svg" alt="" />
     <h1 class="text-[#767A87] text-[16px] font-[400]">Loading ...</h1>
   </div>
 </template>
