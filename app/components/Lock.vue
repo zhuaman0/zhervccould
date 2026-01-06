@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white py-4 px-4 mt-4">
+  <div class="bg-white p-6 mt-4">
     <div class="flex justify-between">
       <div>
         <h1 class="text-[22px]">

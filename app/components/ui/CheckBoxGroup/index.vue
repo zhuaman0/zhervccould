@@ -7,14 +7,8 @@
       :key="index"
       class="py-1 block space-x-2 cursor-pointer"
     >
-      <input
-        v-model="model"
-        type="checkbox"
-        :id="item.value"
-        :value="item"
-        class="mt-1"
-      />
-      <span>{{ item.label }}</span>
+      <input v-model="model" type="checkbox" :id="item.id" :value="item" class="mt-1" />
+      <span>{{ item.name }}</span>
     </label>
   </fieldset>
 </template>

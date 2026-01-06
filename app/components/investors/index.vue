@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="px-16 py-4">
+    <div class="py-4">
       <BreadCrumbs
         class=""
         :links="[
@@ -8,20 +8,25 @@
           {title: 'Найти стартап', path: '/startups'},
         ]"
       />
-      <PageHeader :title="'Стартапы'" :description="'Всего 3245 стартапов'" />
+      <PageHeader
+        :title="'Стартапы'"
+        :total="products.length"
+        :description="'Всего  стартапов'"
+      />
     </div>
-    <div class="grid grid-cols-4 gap-4 pt-7 mb-10 px-16">
+    <div class="grid grid-cols-4 gap-4 pt-7 mb-10">
       <div class="bg-white py-4 px-4">
         <Sidebar v-model="selectedFilters" />
       </div>
       <div class="col-span-3 w-full">
         <UiSearchInput v-model="searchQuery" />
+        <SelectedFilters :selectedFilters="selectedFilters" class="mt-4" />
 
-        <StartupList :startupList="products" />
+        <InvestorList class="mt-4" :startupList="products" />
 
         <!-- NotFound component and on loading Loading component -->
 
-        <Lock />
+        <!-- <Lock /> -->
       </div>
     </div>
   </div>
@@ -33,7 +38,7 @@ definePageMeta({
 })
 import {api} from '#imports'
 import {BreadCrumbs} from '~/components/ui'
-import StartupList from './StartupList/StartupList.vue'
+import InvestorList from './InvestorList/InvestorList.vue'
 import {UiModal, ModalDefault, useModalControl} from '~/components/ui'
 import type BreadCrumbsVue from '~/components/ui/Crumbs/BreadCrumbs.vue'
 import {pathService} from '~/services/path'
@@ -41,8 +46,11 @@ import Sidebar from './components/Sidebar.vue'
 import type {InvestorCreateRequest, SelectOption, Investor} from '~/types'
 import type {Filters} from './types'
 import {R} from 'vue-router/dist/router-CWoNjPRp.mjs'
+import {useToast} from 'vue-toastification'
+import SelectedFilters from './components/SelectedFilters.vue'
 
 const products = ref<Investor[]>([])
+const toast = useToast()
 const selectedFilters = ref<Filters>({
   industry: [],
   technology: [],
@@ -62,8 +70,8 @@ const loading = ref(false)
 
 const fetchStartups = async () => {
   const payload = {
-    industryIds: selectedFilters.value.industry.map(item => item.value),
-    technologyIds: selectedFilters.value.technology.map(item => item.value),
+    industryIds: selectedFilters.value.industry.map(item => item.id),
+    technologyIds: selectedFilters.value.technology.map(item => item.id),
     query: searchQuery.value,
   }
   loading.value = true
@@ -73,7 +81,7 @@ const fetchStartups = async () => {
       products.value = res
     })
     .catch(err => {
-      // tostification.error(err.message)
+      toast.error('Ошибка')
       console.log(err)
     })
     .finally(() => {

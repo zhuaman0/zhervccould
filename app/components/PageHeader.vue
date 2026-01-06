@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="text-black font-bold text-[30px] mt-4">{{ props.title }}</h1>
-    <p class="text-gray-400 mt-4">{{ props.description }}</p>
+    <p class="text-gray-400 mt-4">Всего {{ total }} стартапов</p>
   </div>
 </template>
 
@@ -13,6 +13,10 @@ const props = defineProps({
   },
   description: {
     type: String,
+    required: true,
+  },
+  total: {
+    type: Number,
     required: true,
   },
 })

@@ -23,7 +23,7 @@ const optionsDrop = [
   {
     title: 'Моя анкета',
     img: '@/assets/icons/document.svg',
-    link: '/',
+    link: '/user/questionnaire',
   },
   {
     title: 'Профиль',

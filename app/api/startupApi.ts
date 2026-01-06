@@ -1,4 +1,8 @@
-import type {Investor, DetailInvestorResponse} from '~/types'
+import type {
+  Investor,
+  DetailInvestorResponse,
+  InvestorResponseQuestionnaire,
+} from '~/types'
 import {serializeParams} from './utils'
 import {request} from './request'
 
@@ -13,4 +17,5 @@ export const startupApi = {
     request.get<Investor[]>(`/Investor?${serializeParams(params)}`),
   getDetailList: (pathId: string) =>
     request.get<DetailInvestorResponse>(`/Investor/${pathId}`),
+  getQuestionnaire: () => request.get<InvestorResponseQuestionnaire>('/Investor/me '),
 }

@@ -1,6 +1,4 @@
-<script setup lang="ts">
-import type InputDefaultVue from '../ui/Input/InputDefault.vue'
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="max-w-2xl bg-white p-5 rounded-lg shadow-sm">
