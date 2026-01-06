@@ -1,6 +1,7 @@
 <template>
   <Investors />
 </template>
+
 <script setup lang="ts">
 definePageMeta({
   name: 'Startups',

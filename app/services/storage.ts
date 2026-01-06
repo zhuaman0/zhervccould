@@ -1,6 +1,4 @@
 export const LocalStorage = {
-  state: {},
-
   get(key: string) {
     return localStorage.getItem(key)
   },
@@ -8,6 +6,4 @@ export const LocalStorage = {
   set(value: string) {
     return localStorage.setItem('token', value)
   },
-
-  parse() {},
 }

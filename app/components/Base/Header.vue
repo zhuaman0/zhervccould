@@ -37,7 +37,7 @@
           Войти
         </button>
         <div @click="openDropDown" class="relative">
-          <h1>{{ user?.fullname }} ▾</h1>
+          <p>{{ user?.fullname }} ▾</p>
           <Transition name="fade">
             <UiDown class="absolute" v-if="dropOpen"> <UiDownDropDefault /> </UiDown
           ></Transition>
@@ -51,25 +51,16 @@
 import {useDropControl, DropDefault, UiDown} from '~/components/ui/index'
 import type DropDefaultVue from '../ui/Down/DropDefault.vue'
 import type DropLanguageVue from '../ui/Down/DropLanguage.vue'
-import {AuthService} from '~/services'
 import type {User} from '~/types'
+
+const userStore = useUserStore()
+
+const user = userStore.currentUser
+
 const dropOpen = ref(false)
 
 const openDropDown = () => {
   dropOpen.value = !dropOpen.value
-}
-
-const user = ref<User | null>(null)
-
-const getUser = async () => {
-  AuthService.getMe()
-    .then(res => {
-      user.value = res
-      console.log(res)
-    })
-    .catch(() => {
-      // alert('Not registered')
-    })
 }
 </script>
 

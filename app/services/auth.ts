@@ -1,12 +1,10 @@
-import {LocalStorage} from './storage'
 import {api} from '@/api'
 import {type User} from '~/types'
+import {LocalStorage} from './storage'
 import {useUserStore} from '../stores/user'
 
 class AuthServiceClass {
   private _user: User | null = null
-
-  parseToken() {}
 
   getToken() {
     const token = LocalStorage.get('token')
@@ -23,23 +21,30 @@ class AuthServiceClass {
 
   setUser(user: User) {
     this._user = user
+    useUserStore().setUser(user)
   }
 
   getMe() {
     return api.authApi.getMe().then(res => {
-      const userStore = useUserStore()
       this.setUser(res)
-      userStore.setUser(res)
       return this.getUser()
     })
   }
 
   login({email, password}: {email: string; password: string}) {
     return api.authApi.login({email, password}).then(res => {
-      const userStore = useUserStore()
       this.setToken(res.token)
       return this.getMe()
     })
+  }
+
+  init() {
+    const token = this.getToken()
+    if (token)
+      return this.getMe().catch(err => {
+        console.log(err)
+      })
+    return Promise.resolve()
   }
 }
 

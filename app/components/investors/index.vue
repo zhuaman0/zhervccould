@@ -5,7 +5,7 @@
         class=""
         :links="[
           {title: 'Главная', path: '/'},
-          {title: 'Найти стартап', path: '/startups'},
+          {title: $t('find_startup'), path: '/startups'},
         ]"
       />
       <PageHeader

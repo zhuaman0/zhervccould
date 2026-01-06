@@ -10,13 +10,23 @@ export const useUserStore = defineStore('user', {
     user: null,
   }),
 
+  getters: {
+    currentUser(state) {
+      return state.user
+    },
+  },
+
   actions: {
-    setUser(user: User | null) {
+    setUser(user: User) {
       this.user = user
     },
 
-    clear() {
+    logout() {
       this.user = null
+    },
+
+    getUser() {
+      return this.user
     },
   },
 })

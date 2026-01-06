@@ -28,22 +28,6 @@
 </template>
 
 <script setup lang="ts">
-import {AuthService} from '~/services'
-import type {User} from '~/types'
-const user = ref<User | null>(null)
-
-const getUser = async () => {
-  AuthService.getMe()
-    .then(res => {
-      user.value = res
-      console.log(res)
-    })
-    .catch(() => {
-      alert('Not registered')
-    })
-}
-
-onMounted(() => {
-  getUser()
-})
+const userStore = useUserStore()
+const user = userStore.currentUser
 </script>
